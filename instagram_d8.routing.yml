@@ -1,0 +1,15 @@
+instagram_d8.description:
+  path: '/insta-block'
+  defaults:
+    _controller: '\Drupal\instagram_d8\Controller\InstaBlockController::description'
+    _title: 'Instagram Block'
+  requirements:
+    _permission: 'access content'
+
+instagram_d8.settings:
+  path: '/admin/config/BYU/instagram_d8'
+  defaults:
+    _form: '\Drupal\instagram_d8\Form\InstaSettingsForm'
+    _title: 'Instagram_d8 settings'
+  requirements:
+    _permission: 'administer site configuration'
