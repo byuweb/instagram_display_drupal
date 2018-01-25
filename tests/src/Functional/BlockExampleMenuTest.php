@@ -1,15 +1,15 @@
 <?php
 
-namespace Drupal\Tests\instagram_d8\Functional;
+namespace Drupal\Tests\instagram_display\Functional;
 
 use Drupal\Tests\BrowserTestBase;
 
 /**
  * Test the user-facing menus in Block Example.
  *
- * @ingroup instagram_d8
+ * @ingroup instagram_display
  *
- * @group instagram_d8
+ * @group instagram_display
  * @group examples
  */
 class BlockExampleMenuTest extends BrowserTestBase {
@@ -19,7 +19,7 @@ class BlockExampleMenuTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = array('block', 'instagram_d8');
+  public static $modules = array('block', 'instagram_display');
 
   /**
    * The installation profile to use with this test.
@@ -39,7 +39,7 @@ class BlockExampleMenuTest extends BrowserTestBase {
   }
 
   /**
-   * Tests instagram_d8 menus.
+   * Tests instagram_display menus.
    */
   public function testBlockExampleMenu() {
     $this->drupalGet('examples/block-example');

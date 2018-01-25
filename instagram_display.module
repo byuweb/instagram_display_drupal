@@ -2,14 +2,14 @@
 
 /**
  * @file
- * Module file for instagram_d8.
+ * Module file for instagram_display.
  */
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Block\BlockPluginInterface;
 
 /**
- * @defgroup instagram_d8 Example: Block
+ * @defgroup instagram_display Example: Block
  * @ingroup examples
  * @{
  * Demonstrates code creation of blocks.
@@ -28,7 +28,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  * blocks, you can also use hook_block_view_BASE_BLOCK_ID_alter() to alter a
  * specific block. To change only our block using
  * hook_block_view_BASE_BLOCK_ID_alter, we would use the function:
- * instagram_d8_block_view_example_uppercase_alter()
+ * instagram_display_block_view_example_uppercase_alter()
  *
  * We are going to uppercase the subject (the title of the block as shown to the
  * user) of any block if the string "uppercase" appears in the block title or
@@ -39,7 +39,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  * hook by creating a new block whose title has the string 'uppercase' in it
  * (set as title through the UI).
  */
-function instagram_d8_block_view_alter(array &$build, BlockPluginInterface $block) {
+function instagram_display_block_view_alter(array &$build, BlockPluginInterface $block) {
   // We'll search for the string 'uppercase'.
   $definition = $block->getPluginDefinition();
   if ((!empty($build['#configuration']['label']) && stristr($build['#configuration']['label'], 'uppercase')) || (!empty($definition['subject']) && stristr($definition['subject'], 'uppercase'))) {
@@ -52,9 +52,9 @@ function instagram_d8_block_view_alter(array &$build, BlockPluginInterface $bloc
 /**
  * {@inheritdoc}
  */
-function instagram_d8_build_display($category) {
+function instagram_display_build_display($category) {
 
-    $html = instagram_d8_fetch_posts();
+    $html = instagram_display_fetch_posts();
     return $html;
 }
 
@@ -62,16 +62,16 @@ function instagram_d8_build_display($category) {
 /**
  * {@inheritdoc}
  */
-function instagram_d8_fetch_posts() {
-    $userId = \Drupal::config('instagram_d8.settings')->get('userId');
+function instagram_display_fetch_posts() {
+    $userId = \Drupal::config('instagram_display.settings')->get('userId');
     if( !isset($userId) ) { // if no good value, use byu by default
         $userId = '458495252';
     }
-    $username = \Drupal::config('instagram_d8.settings')->get('username');
+    $username = \Drupal::config('instagram_display.settings')->get('username');
     if( !isset($username) ) { // if no good value, use byu by default
         $username = 'brighamyounguniversity';
     }
-    $access_token = \Drupal::config('instagram_d8.settings')->get('accessToken');
+    $access_token = \Drupal::config('instagram_display.settings')->get('accessToken');
     if( !isset($access_token) ) {
         // return an error.
     }

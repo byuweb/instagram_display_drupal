@@ -1,4 +1,4 @@
-# instagram_d8
+# instagram_display
 A module to display posts from BYU's instagram.
 
 This module can be customized to pull from any Instagram account.

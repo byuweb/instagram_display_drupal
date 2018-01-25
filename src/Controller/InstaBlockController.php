@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\instagram_d8\Controller;
+namespace Drupal\instagram_display\Controller;
 
-use Drupal\instagram_d8\Utility\DescriptionTemplateTrait;
+use Drupal\instagram_display\Utility\DescriptionTemplateTrait;
 
 /**
  * Controller routines for block example routes.
@@ -14,7 +14,7 @@ class InstaBlockController {
     * {@inheritdoc}
     */
     protected function getModuleName() {
-    return 'instagram_d8';
+    return 'instagram_display';
     }
 
 

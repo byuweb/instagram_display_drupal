@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\instagram_d8\Functional;
+namespace Drupal\Tests\instagram_display\Functional;
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Tests\BrowserTestBase;
@@ -8,9 +8,9 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Test the configuration options and block created by Block Example module.
  *
- * @ingroup instagram_d8
+ * @ingroup instagram_display
  *
- * @group instagram_d8
+ * @group instagram_display
  * @group examples
  */
 class BlockExampleTest extends BrowserTestBase {
@@ -20,10 +20,10 @@ class BlockExampleTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = array('block', 'instagram_d8');
+  public static $modules = array('block', 'instagram_display');
 
   /**
-   * Tests instagram_d8 functionality.
+   * Tests instagram_display functionality.
    */
   public function testBlockExampleBasic() {
     $assert = $this->assertSession();
@@ -44,21 +44,21 @@ class BlockExampleTest extends BrowserTestBase {
     // Define and place blocks.
     $settings_configurable = array(
       'label' => t('Title of first block (example_configurable_text)'),
-      'id' => 'instagram_d8_example_configurable_text',
+      'id' => 'instagram_display_example_configurable_text',
       'theme' => $theme_name,
     );
     $this->drupalPlaceBlock('example_configurable_text', $settings_configurable);
 
     $settings_uppercase = array(
       'label' => t('Configurable block to be uppercased'),
-      'id' => 'instagram_d8_example_uppercased',
+      'id' => 'instagram_display_example_uppercased',
       'theme' => $theme_name,
     );
     $this->drupalPlaceBlock('example_uppercase', $settings_uppercase);
 
     $settings_empty = array(
       'label' => t('Example: empty block'),
-      'id' => 'instagram_d8_example_empty',
+      'id' => 'instagram_display_example_empty',
       'theme' => $theme_name,
     );
     $this->drupalPlaceBlock('example_empty', $settings_empty);
@@ -73,7 +73,7 @@ class BlockExampleTest extends BrowserTestBase {
 
     // Change content of configurable text block.
     $edit = array(
-      'settings[instagram_d8_string_text]' => $this->randomMachineName(),
+      'settings[instagram_display_string_text]' => $this->randomMachineName(),
     );
     $this->drupalPostForm('/admin/structure/block/manage/' . $settings_configurable['id'], $edit, t('Save block'));
     $assert->statusCodeEquals(200);
@@ -81,7 +81,7 @@ class BlockExampleTest extends BrowserTestBase {
     // Verify that new content is shown.
     $this->drupalGet('');
     $assert->statusCodeEquals(200);
-    $assert->pageTextContains($edit['settings[instagram_d8_string_text]']);
+    $assert->pageTextContains($edit['settings[instagram_display_string_text]']);
   }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\instagram_d8\Utility;
+namespace Drupal\instagram_display\Utility;
 
 /**
  * Trait to implement a "drop-in" template for Example's controllers.

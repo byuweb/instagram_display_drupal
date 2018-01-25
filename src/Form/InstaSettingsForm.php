@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\instagram_d8\Form;
+namespace Drupal\instagram_display\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Configure instagram_d8 settings for this site.
+ * Configure instagram_display settings for this site.
  */
 class InstaSettingsForm extends ConfigFormBase {
     /**
      * {@inheritdoc}
      */
     public function getFormId() {
-        return 'instagram_d8_settings';
+        return 'instagram_display_settings';
     }
 
     /**
@@ -21,7 +21,7 @@ class InstaSettingsForm extends ConfigFormBase {
      */
     protected function getEditableConfigNames() {
         return [
-            'instagram_d8.settings',
+            'instagram_display.settings',
         ];
     }
 
@@ -29,7 +29,7 @@ class InstaSettingsForm extends ConfigFormBase {
      * {@inheritdoc}
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        $config = $this->config('instagram_d8.settings');
+        $config = $this->config('instagram_display.settings');
 
         $form['username'] = array(
             '#type' => 'textfield',
@@ -63,7 +63,7 @@ class InstaSettingsForm extends ConfigFormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         // Retrieve the configuration
-        \Drupal::configFactory()->getEditable('instagram_d8.settings')
+        \Drupal::configFactory()->getEditable('instagram_display.settings')
             // Set the submitted configuration setting
             ->set('username', $form_state->getValue('username'))
             ->set('userId', $form_state->getValue('userId'))
